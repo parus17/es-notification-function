@@ -13,7 +13,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.1.0</version>
+        <version>2.7.12</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -27,6 +27,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <spring-cloud.version>2022.0.3</spring-cloud.version>
+        <spring-cloud-azure.version>4.8.0</spring-cloud-azure.version>
 
         <functionResourceGroup>rg-enersmart</functionResourceGroup>
         <functionAppName>func-es-notification</functionAppName>
@@ -43,9 +44,24 @@
         </dependency>
 
         <dependency>
+            <groupId>com.azure.spring</groupId>
+            <artifactId>spring-cloud-azure-starter-data-cosmos</artifactId>
+        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.azure</groupId>-->
+<!--            <artifactId>azure-spring-data-cosmos</artifactId>-->
+<!--            <version>3.35.0</version>-->
+<!--        </dependency>-->
+
+        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
         </dependency>
 
         <dependency>
@@ -64,6 +80,15 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+            <dependency>
+                <groupId>com.azure.spring</groupId>
+                <artifactId>spring-cloud-azure-dependencies</artifactId>
+                <version>${spring-cloud-azure.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
             <dependency>
                 <groupId>com.microsoft.azure.functions</groupId>
                 <artifactId>azure-functions-java-library</artifactId>
